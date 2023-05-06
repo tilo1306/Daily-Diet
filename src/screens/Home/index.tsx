@@ -9,7 +9,7 @@ export function Home() {
   return (
     <Container>
       <Header />
-      <Percent />
+      <Percent positionArrow="flex-end" percentageValue={90} />
       <AreaAddMeals>
         <Text>Refeições</Text>
         <Button icon="plus" title="Nova Refeição" />
