@@ -8,14 +8,23 @@ import {
 } from "./styles";
 import { ButtonIcon } from "@components/ButtonIcon";
 
-export function Percent() {
+type Props = {
+  positionArrow: "flex-start" | "flex-end";
+  percentageValue: number;
+};
+
+export function Percent({ positionArrow, percentageValue }: Props) {
   return (
-    <Container>
-      <AreaArrow>
-        <ButtonIcon icon="arrow-up-right" />
+    <Container isFitness={percentageValue > 50 ? true : false}>
+      <AreaArrow
+        align={positionArrow === "flex-end" ? "flex-end" : "flex-start"}
+      >
+        <ButtonIcon
+          icon={positionArrow === "flex-end" ? "arrow-up-right" : "arrow-left"}
+        />
       </AreaArrow>
       <AreaPercentage>
-        <Percentage>90,86%</Percentage>
+        <Percentage>{percentageValue}%</Percentage>
         <Text>das refeições dentro da dieta</Text>
       </AreaPercentage>
     </Container>
