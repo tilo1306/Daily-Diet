@@ -16,10 +16,10 @@ export function Button({ title, icon, type = "PRIMARY", ...rest }: Props) {
       {icon ? (
         <>
           <Icon name={icon} type={type} />
-          <Title>{title}</Title>
+          <Title type={type}>{title}</Title>
         </>
       ) : (
-        <Title>{title}</Title>
+        <Title type={type}>{title}</Title>
       )}
     </Container>
   );

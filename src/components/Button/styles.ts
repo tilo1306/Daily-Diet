@@ -13,7 +13,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   min-height: 50px;
   max-height: 50px;
   background-color: ${({ theme, type }) =>
-    type === "PRIMARY" ? theme.COLORS.GRAY_200 : theme.COLORS.RED_DARK};
+    type === "PRIMARY" ? theme.COLORS.GRAY_200 : theme.COLORS.GRAY_700};
   border-radius: 6px;
 
   justify-content: center;
@@ -21,10 +21,10 @@ export const Container = styled(TouchableOpacity)<Props>`
   flex-direction: row;
 `;
 
-export const Title = styled.Text`
-  ${({ theme }) => css`
+export const Title = styled.Text<Props>`
+  ${({ theme, type }) => css`
     font-size: ${theme.FONT_SIZE.SM}px;
-    color: ${theme.COLORS.WHITE};
+    color: ${type === "PRIMARY" ? theme.COLORS.WHITE : theme.COLORS.GRAY_100};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
 `;
@@ -32,12 +32,7 @@ export const Title = styled.Text`
 export const Icon = styled(MaterialCommunityIcons).attrs<Props>(
   ({ theme, type }) => ({
     size: 18,
-    color:
-      type === "PRIMARY"
-        ? theme.COLORS.WHITE
-        : type === "SECONDARY"
-        ? theme.COLORS.RED_DARK
-        : theme.COLORS.GRAY_200,
+    color: type === "PRIMARY" ? theme.COLORS.WHITE : theme.COLORS.GRAY_100,
   })
 )`
   margin-right: 12px;
