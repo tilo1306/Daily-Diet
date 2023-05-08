@@ -17,12 +17,19 @@ import {
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function NewMeat() {
+  const { navigate } = useNavigation();
+
   return (
     <Container>
       <Header>
-        <ButtonIcon type="TERTIARY" icon="arrow-left" />
+        <ButtonIcon
+          type="TERTIARY"
+          icon="arrow-left"
+          onPress={() => navigate("home")}
+        />
         <Title>Nova refeição</Title>
       </Header>
       <AreaForm>
