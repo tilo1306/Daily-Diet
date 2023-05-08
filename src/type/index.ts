@@ -1,9 +1,11 @@
 export interface IResponse {
   id: number;
   date: string;
-  hours: {
-    hour: string;
-    description: string;
-    isFitness: boolean;
-  }[];
+  hours: IHours[];
+}
+
+export interface IHours {
+  hour: string;
+  description: string;
+  isFitness: boolean;
 }
