@@ -8,19 +8,26 @@ import {
 } from "./styles";
 import { Percent } from "@components/Percent";
 import { StatisticDescription } from "@components/StatisticDescription";
+import { useRoute } from "@react-navigation/native";
+
+type RouteParams = {
+  percent: number;
+};
 
 export function Statistic() {
-  const percentageValue = 30.21;
+  const route = useRoute();
+
+  const { percent } = route.params as RouteParams;
 
   return (
-    <Container isFitness={percentageValue > 50 ? true : false}>
+    <Container isFitness={percent > 50 ? true : false}>
       <AreaPercent>
-        <Percent positionArrow="flex-start" percentageValue={percentageValue} />
+        <Percent positionArrow="flex-start" percentageValue={percent} />
       </AreaPercent>
       <AreaStatistic>
         <Title>Estatísticas gerais</Title>
         <StatisticDescription
-          value={22}
+          value={125}
           message={"melhor sequência de pratos dentro da dieta"}
         />
         <StatisticDescription value={109} message={"refeições registradas"} />
