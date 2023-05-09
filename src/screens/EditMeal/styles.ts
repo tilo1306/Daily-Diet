@@ -1,6 +1,6 @@
 import { Input } from "@components/Input";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export const Container = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.COLORS.GRAY_500};
@@ -14,22 +14,26 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.LG}px;
+  `}
   margin-left: 90px;
   width: 100%;
 `;
 
 export const AreaForm = styled.View`
-  flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
   border-radius: 20px;
+  flex: 1;
   padding: 40px 24px;
 `;
 
 export const Text = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.SM}px;
+  `}
   margin-bottom: 4px;
 `;
 
@@ -58,8 +62,8 @@ export const ButtonSelectYes = styled.TouchableOpacity<{ clicker: boolean }>`
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
   border-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
-  border-width: ${({ clicker }) => (clicker ? "1px" : "0")};
   border-radius: 6px;
+  border-width: ${({ clicker }) => (clicker ? "1px" : "0")};
   flex: 1;
   flex-direction: row;
   height: 50px;

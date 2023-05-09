@@ -8,11 +8,14 @@ export declare global {
       statistic: {
         percent: number;
       };
-      meal: undefined;
-
-      //   players: {
-      //     group: string;
-      //   };
+      meal: {
+        idMeal: string;
+        date: string;
+      };
+      editMeal: {
+        idMeal: string;
+        date: string;
+      };
     }
   }
 }

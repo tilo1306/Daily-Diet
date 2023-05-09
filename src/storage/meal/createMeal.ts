@@ -1,8 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import uuid from "uuid-js";
+
 import { getAllMeal } from "./getAllMeal";
 import { MEAL_COLLECTION } from "@storage/storageConfig";
+
 import { IResponse } from "src/type";
-import uuid from "uuid-js";
 
 type Props = {
   name: string;
@@ -32,7 +34,9 @@ export async function createMeal({
         isFitness,
       });
 
-      console.log(dateAlreadyExist);
+      dateAlreadyExist.hours.sort(function (a, b) {
+        return a.hour < b.hour ? 1 : a.hour > b.hour ? -1 : 0;
+      });
 
       const storage = JSON.stringify(storeMeal);
       await AsyncStorage.setItem(MEAL_COLLECTION, storage);
@@ -45,7 +49,19 @@ export async function createMeal({
         ],
       };
       const newMealCollection = [...storeMeal, newMeal];
+
+      newMealCollection.sort(function (a, b) {
+        return a.date < b.date ? 1 : a.date > b.date ? -1 : 0;
+      });
+
+      newMealCollection.forEach((x) =>
+        x.hours.sort(function (a, b) {
+          return a.hour < b.hour ? 1 : a.hour > b.hour ? -1 : 0;
+        })
+      );
+
       const storage = JSON.stringify(newMealCollection);
+
       await AsyncStorage.setItem(MEAL_COLLECTION, storage);
     }
   } catch (error) {

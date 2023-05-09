@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 interface HeightProps {
   height: number;
@@ -6,31 +6,34 @@ interface HeightProps {
 }
 
 export const Container = styled.View<HeightProps>`
-  flex: 1;
-  max-height: ${(props) => props.height}px;
-
-  padding: 16px;
-  border-radius: 8px;
   background-color: ${({ theme, color }) =>
     color === "PRIMARY"
       ? theme.COLORS.GRAY_600
       : color === "SECUNDARY"
       ? theme.COLORS.GREEN_LIGHT
       : theme.COLORS.RED_LIGHT};
+  border-radius: 8px;
+  flex: 1;
   margin-bottom: 12px;
+  max-height: ${(props) => props.height}px;
+  padding: 16px;
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_100};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
-  text-align: center;
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_100};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.XL}px;
+  `}
   margin-bottom: 8px;
+  text-align: center;
 `;
 
 export const Text = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_200};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_200};
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+    font-size: ${theme.FONT_SIZE.SM}px;
+  `}
   text-align: center;
 `;

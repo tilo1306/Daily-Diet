@@ -21,7 +21,7 @@ export function ListMeal({ data }: Props) {
       renderItem={({ item }) => (
         <>
           <Date>{item.date}</Date>
-          <Meal hours={item.hours} />
+          <Meal hours={item.hours} date={item.date} />
         </>
       )}
       ListEmptyComponent={() => (

@@ -16,9 +16,9 @@ export const AreaPercent = styled.View`
 `;
 
 export const AreaStatistic = styled.View`
-  flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
   border-radius: 20px;
+  flex: 1;
   margin-top: 26px;
   padding: 0 24px;
 `;
@@ -27,13 +27,13 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_100};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
-  text-align: center;
-  margin-top: 33px;
   margin-bottom: 23px;
+  margin-top: 33px;
+  text-align: center;
 `;
 
 export const SubAreaStatistic = styled.View`
-  width: 100%;
   flex-direction: row;
   gap: 12px;
+  width: 100%;
 `;

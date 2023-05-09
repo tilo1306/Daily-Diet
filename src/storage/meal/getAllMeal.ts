@@ -9,7 +9,7 @@ export async function getAllMeal() {
 
     const meals: IResponse[] = storage ? JSON.parse(storage) : [];
 
-    return meals.reverse();
+    return meals;
   } catch (error) {
     throw error;
   }

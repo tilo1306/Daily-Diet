@@ -1,15 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useState } from "react";
-import { AreaAddMeals, Container, Text } from "./styles";
-import { Header } from "@components/Header";
-import { Percent } from "@components/Percent";
-import { Button } from "@components/Button";
-import { ListMeal } from "@components/ListMeal";
-import { IHours, IResponse } from "src/type";
-import { getAllMeal } from "@storage/meal/getAllMeal";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
-import { Loading } from "@components/Loading";
 import { Alert } from "react-native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+
+import { Button } from "@components/Button";
+import { Header } from "@components/Header";
+import { ListMeal } from "@components/ListMeal";
+import { Loading } from "@components/Loading";
+import { Percent } from "@components/Percent";
+
+import { getAllMeal } from "@storage/meal/getAllMeal";
+
+import { IHours, IResponse } from "src/type";
+
+import { AreaAddMeals, Container, Text } from "./styles";
 
 export function Home() {
   const [isLoading, setIsLoading] = useState(false);

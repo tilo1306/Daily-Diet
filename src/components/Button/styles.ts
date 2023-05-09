@@ -9,16 +9,15 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)<Props>`
-  flex: 1;
-  min-height: 50px;
-  max-height: 50px;
+  align-items: center;
   background-color: ${({ theme, type }) =>
     type === "PRIMARY" ? theme.COLORS.GRAY_200 : theme.COLORS.GRAY_700};
   border-radius: 6px;
-
-  justify-content: center;
-  align-items: center;
+  flex: 1;
   flex-direction: row;
+  justify-content: center;
+  min-height: 50px;
+  max-height: 50px;
 `;
 
 export const Title = styled.Text<Props>`
