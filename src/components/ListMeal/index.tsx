@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from "react";
 import { Date } from "./styles";
-import { Meat } from "@components/Meat";
+import { Meal } from "@components/Meal";
 import { FlatList } from "react-native";
 import { IResponse } from "src/type";
 import { ListEmpty } from "@components/ListEmpty";
@@ -16,12 +16,12 @@ export function ListMeal({ data }: Props) {
     <FlatList
       data={data}
       showsVerticalScrollIndicator={false}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item) => item.id}
       contentContainerStyle={[{ paddingBottom: 50 }]}
       renderItem={({ item }) => (
         <>
           <Date>{item.date}</Date>
-          <Meat hours={item.hours} />
+          <Meal hours={item.hours} />
         </>
       )}
       ListEmptyComponent={() => (

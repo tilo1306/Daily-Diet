@@ -40,12 +40,11 @@ export function Home() {
       (meal) => meal.isFitness === true
     );
 
-    const valuePercent = (
-      (isFitnessAmountTrue.length / listHours.length) *
-      100
-    ).toFixed(2);
+    const valuePercent = parseFloat(
+      ((isFitnessAmountTrue.length / listHours.length) * 100).toFixed(2)
+    );
 
-    setPercent(parseFloat(valuePercent));
+    isNaN(valuePercent) ? setPercent(0) : setPercent(valuePercent);
   }
 
   useFocusEffect(

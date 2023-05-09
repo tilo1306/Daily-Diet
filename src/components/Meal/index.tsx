@@ -11,21 +11,23 @@ import {
 
 type Props = {
   hours: {
+    id: string;
+    name: string;
     hour: string;
     description: string;
     isFitness: boolean;
   }[];
 };
 
-export function Meat({ hours }: Props) {
+export function Meal({ hours }: Props) {
   return (
     <>
       {hours.map((p) => (
-        <Container key={p.hour}>
+        <Container key={p.id}>
           <Hour key={p.description}>{p.hour}</Hour>
           <VerticalLine />
           <AreaDescription>
-            <Description>{p.description}</Description>
+            <Description>{p.name}</Description>
             <ContainerIcon>
               <Icon name="circle" diet={p.isFitness} />
             </ContainerIcon>

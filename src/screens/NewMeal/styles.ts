@@ -54,7 +54,7 @@ export const AreaFormDiet = styled.View`
   gap: 8px;
 `;
 
-export const ViewSelected = styled.View`
+export const ButtonSelectYes = styled.TouchableOpacity<{ clicker: boolean }>`
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
   flex: 1;
   flex-direction: row;
@@ -63,6 +63,21 @@ export const ViewSelected = styled.View`
   height: 50px;
   border-radius: 6px;
   margin-top: 8px;
+  border-width: ${({ clicker }) => (clicker ? "1px" : "0")};
+  border-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+`;
+
+export const ButtonSelectNot = styled.TouchableOpacity<{ clicker: boolean }>`
+  background-color: ${({ theme }) => theme.COLORS.GRAY_600};
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 6px;
+  margin-top: 8px;
+  border-width: ${({ clicker }) => (clicker ? "1px" : "0")};
+  border-color: ${({ theme }) => theme.COLORS.RED_DARK};
 `;
 
 export const CircleGreen = styled.View`
