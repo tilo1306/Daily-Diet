@@ -39,9 +39,9 @@ type RouteParams = {
 };
 
 export function Meal() {
-  const [isFitness, setIsFitness] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadMeal, setLoadMeal] = useState<IHours>();
+  const [loadMeal, setLoadMeal] = useState<(IHours | undefined)[]>([]);
+
   const [modalDelete, setModalDelete] = useState<boolean>(false);
 
   const { navigate } = useNavigation();
@@ -65,12 +65,11 @@ export function Meal() {
       setIsLoading(true);
       const data = await getAllMeal();
 
-      const findMeal = data.map((a) => {
-        return a.hours.find((x) => x.id === idMeal);
-      });
+      const findHour = data
+        .map((meal) => meal.hours.find((mealHour) => mealHour.id === idMeal))
+        .filter((meal) => meal !== undefined);
 
-      setLoadMeal(findMeal[0]);
-      setIsFitness(findMeal[0]?.isFitness as boolean);
+      setLoadMeal(findHour);
 
       setIsLoading(false);
     } catch (error) {
@@ -105,11 +104,11 @@ export function Meal() {
             <Title>Refeição</Title>
           </Header>
           <AreaContext>
-            <TitleAreaContext>{loadMeal?.name}</TitleAreaContext>
-            <Text>{loadMeal?.description}</Text>
+            <TitleAreaContext>{loadMeal[0]?.name}</TitleAreaContext>
+            <Text>{loadMeal[0]?.description}</Text>
             <SubTitleAreaContext>Data e hora</SubTitleAreaContext>
-            <Text>{`${date} às ${loadMeal?.hour}`}</Text>
-            {isFitness ? (
+            <Text>{`${date} às ${loadMeal[0]?.hour}`}</Text>
+            {loadMeal[0]?.isFitness ? (
               <InfoDiet>
                 <CircleGreen />
                 <TextDiet>dentro da dieta</TextDiet>

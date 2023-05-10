@@ -118,16 +118,16 @@ export function EditMeal() {
       setIsLoading(true);
       const data = await getAllMeal();
 
-      const findMeal = data.map((a) => {
-        return a.hours.find((x) => x.id === idMeal);
-      });
+      const findHour = data
+        .map((meal) => meal.hours.find((mealHour) => mealHour.id === idMeal))
+        .filter((meal) => meal !== undefined);
 
-      SetIsFitnessYes(findMeal[0]?.isFitness as boolean);
-      SetIsFitnessNot(!!isFitnessYes);
-      setName(findMeal[0]?.name as string);
-      setDescription(findMeal[0]?.description as string);
+      SetIsFitnessYes(findHour[0]?.isFitness as boolean);
+      SetIsFitnessNot(!findHour[0]?.isFitness);
+      setName(findHour[0]?.name as string);
+      setDescription(findHour[0]?.description as string);
       setNewDate(date);
-      setTime(findMeal[0]?.hour as string);
+      setTime(findHour[0]?.hour as string);
 
       setIsLoading(false);
     } catch (error) {
