@@ -1,4 +1,4 @@
-## Ignite Teams
+## Daily Diet
 
 <img align="center" alt="Test-Back-end" src="./src/assets/banner.png">
 &ensp;
